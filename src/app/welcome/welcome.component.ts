@@ -25,8 +25,7 @@ export class WelcomeComponent implements OnInit {
   }
 
   loginWithRedirect(): void {
-   this.fronteggAuthService.loginWithRedirect({
-    redirectUri: window.location.origin + '/FrontEgg/oauth/callback'
-  });
-  }
+  const redirectUri = window.location.origin + '/FrontEgg/oauth/callback';
+  this.fronteggAuthService.loginWithRedirect({ redirectUri });
+}
 }
