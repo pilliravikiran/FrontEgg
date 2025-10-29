@@ -1,0 +1,21 @@
+<div class="dropdown">
+  <button class="dropdown-button" (click)="toggleDropdown()">
+    <img src="assets/icons/unfold-more.svg" alt="Other tenants" />
+  </button>
+  <div class="dropdown-menu" [class.show]="isOpen">
+    <button
+      *ngFor="let item of items"
+      class="dropdown-item"
+      [class.active]="selected?.id === item.id"
+      (click)="selectItem(item)"
+    >
+      <div class="dropdown-item-content">
+        <div class="initials">{{ getInitials(item.name) }}</div>
+        {{ item.name }}
+      </div>
+      @if(selected?.id === item.id) {
+      <img src="assets/icons/checkmark.svg" alt="Selected tenant" />
+      }
+    </button>
+  </div>
+</div>

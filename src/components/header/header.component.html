@@ -1,0 +1,15 @@
+<header class="header">
+  <div class="container header-wrapper">
+    <div class="logo-wrapper">
+      <a href="https://frontegg.com/" target="_blank" rel="noreferrer">
+        <img src="assets/logo.svg" width="170" height="32" alt="Frontegg" />
+      </a>
+      <div class="angular-logo">
+        <img src="assets/angular.png" width="25" height="25" alt="Angular" />
+      </div>
+    </div>
+    @if(isAuthenticated) {
+    <button class="secondary-button" (click)="logout()">Logout</button>
+    }
+  </div>
+</header>

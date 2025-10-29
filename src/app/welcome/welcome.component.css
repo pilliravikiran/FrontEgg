@@ -1,0 +1,26 @@
+.welcome-card {
+  width: 400px;
+}
+
+.welcome-texts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.welcome-title {
+  font-size: 32px;
+  line-height: 140%;
+  font-weight: 700;
+  color: var(--grey-900);
+  text-align: center;
+}
+
+.welcome-text {
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: 400;
+  color: var(--grey-600);
+  text-align: center;
+}

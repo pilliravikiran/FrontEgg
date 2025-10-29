@@ -1,0 +1,93 @@
+<section class="section-screen">
+  <div class="section-card account-card">
+    <div class="title-wrapper">
+      <h1 class="title">Hello, {{ user?.name }}!</h1>
+      <button class="primary-button fit-content" (click)="openAdminBox()">
+        Self-service portal
+      </button>
+    </div>
+    <div class="tenants-wrapper">
+      <div class="tenant-card">
+        <div class="tenant-title">
+          <div class="tenant-logo">
+            @if(user?.profilePictureUrl) {
+            <img
+              [src]="user.profilePictureUrl"
+              alt="Welcome"
+              width="24"
+              height="24"
+              (error)="handleImageError($event)"
+            />
+            } @else {
+            <div class="initials">{{ getInitials(user?.name) }}</div>
+            }
+          </div>
+          <p class="tenant-name">{{ user?.name }}</p>
+        </div>
+        <div class="tenant-info">
+          <div class="tenant-info-item">
+            <p class="tenant-info-item-title">Name</p>
+            <p class="tenant-info-item-value">{{ user?.name }}</p>
+          </div>
+          <div class="tenant-info-item">
+            <p class="tenant-info-item-title">Email</p>
+            <p class="tenant-info-item-value">{{ user?.email }}</p>
+          </div>
+          <div class="tenant-info-item">
+            <p class="tenant-info-item-title">Roles</p>
+            <p class="tenant-info-item-value">{{ getUserRoles() }}</p>
+          </div>
+        </div>
+        <button class="secondary-button edit-button" (click)="openAdminBox()">
+          Edit user
+        </button>
+      </div>
+      @if(activeTenant?.id) {
+      <div class="tenant-card">
+        <div class="tenant-title-wrapper">
+          <div class="tenant-title">
+            <div class="tenant-logo">
+              <div class="initials">{{ getInitials(activeTenant.name) }}</div>
+            </div>
+            <p class="tenant-name">{{ activeTenant.name }}</p>
+          </div>
+          <app-tenants-dropdown
+            [items]="tenantsState?.tenants"
+            [selected]="activeTenant"
+            (selectedChange)="switchTenant($event)"
+          >
+          </app-tenants-dropdown>
+        </div>
+        <div class="tenant-info">
+          <div class="tenant-info-item">
+            <p class="tenant-info-item-title">ID</p>
+            <div class="tenant-info-copy-wrapper">
+              <p class="tenant-info-item-value ellipsis">
+                {{ activeTenant.id }}
+              </p>
+              <app-copy-button [text]="activeTenant.id" />
+            </div>
+          </div>
+          <div class="tenant-info-item">
+            <p class="tenant-info-item-title">Members</p>
+            <p class="tenant-info-item-value">{{ membersLoading ? 'Loading...' : membersCount }}</p>
+          </div>
+
+          <div class="tenant-info-item">
+            <p class="tenant-info-item-title">Creator</p>
+            <p class="tenant-info-item-value">
+              {{ activeTenant.creatorEmail || 'system' }}
+            </p>
+          </div>
+        </div>
+        <button
+          class="secondary-button edit-button"
+          (click)="openAccountSettings()"
+        >
+          Edit account
+        </button>
+      </div>
+      }
+    </div>
+  </div>
+</section>

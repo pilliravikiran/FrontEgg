@@ -1,0 +1,101 @@
+.signup-banner {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 32px 0;
+  box-shadow: 0px 1px 4px 0px #7a7c813d;
+  background-color: var(--classic-white);
+}
+
+.signup-banner-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.custom-credentials .signup-banner-wrapper{
+  justify-content: center;
+}
+
+.custom-credentials .signup-banner-text {
+  display: none;
+}
+
+.signup-banner-text {
+  width: fit-content;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 14px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 100%;
+  font-weight: 600;
+  color: var(--classic-grey-800);
+  background-color: var(--classic-light-info);
+}
+.signup-banner-text a {
+  color: var(--classic-primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+.signup-banner-text a:hover,
+.signup-banner-text a:active {
+  color: var(--classic-darker-primary);
+}
+
+.reference-links {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+}
+
+.third-party-links {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+
+.visit-doc {
+  color: var(--classic-grey-800);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.3s ease;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.visit-doc svg {
+  transition: all 0.3s ease;
+}
+
+.visit-doc:hover,
+.visit-doc:active,
+.visit-doc:hover svg,
+.visit-doc:active svg {
+  fill: var(--classic-primary);
+  color: var(--classic-primary);
+}
+
+.icon-link {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25%;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+.icon-link:hover {
+  background-color: var(--classic-grey-100);
+}
