@@ -1,5 +1,4 @@
 import { CommonModule } from '@angular/common';
-import { environment } from './environments/environment'; 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
@@ -39,10 +38,12 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forRoot(routes, { useHash: false }),
     FronteggAppModule.forRoot({
-      contextOptions: environment.frontegg.contextOptions,
-  hostedLoginBox: true,
-  authOptions: environment.frontegg.authOptions,
-  customLoader: true
+      contextOptions: sanboxContextOptions,
+      hostedLoginBox: true,
+      authOptions: {
+        keepSessionAlive: true,
+      },
+      customLoader: true
     }),
   ],
   exports: [
