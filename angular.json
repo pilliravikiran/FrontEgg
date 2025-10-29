@@ -31,7 +31,6 @@
           },
           "configurations": {
             "production": {
-              "baseHref": "/FrontEgg/",
               "budgets": [
                 {
                   "type": "initial",
