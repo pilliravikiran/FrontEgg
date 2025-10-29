@@ -20,8 +20,13 @@ const routes: Routes = [
     canActivate: [FronteggAuthGuard],
   },
   { path: '', component: WelcomeComponent },
+
+  // 👇 This route catches the Frontegg callback and redirects the user to /home
+  { path: 'oauth/callback', redirectTo: '/home', pathMatch: 'full' },
+
   { path: '**', redirectTo: 'home' },
 ];
+
 
 @NgModule({
   declarations: [
