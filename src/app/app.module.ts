@@ -12,18 +12,12 @@ import { AccountInfoComponent } from './account-info/account-info.component';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { CopyButtonComponent } from '../components/copy-button/copy-button.component';
+import { OauthCallbackComponent } from './oauth-callback/oauth-callback.component';
 
 const routes: Routes = [
-  {
-    path: 'home',
-    component: AccountInfoComponent,
-    canActivate: [FronteggAuthGuard],
-  },
   { path: '', component: WelcomeComponent },
-
-  // 👇 This route catches the Frontegg callback and redirects the user to /home
-  { path: 'oauth/callback', redirectTo: '/home', pathMatch: 'full' },
-
+  { path: 'home', component: AccountInfoComponent, canActivate: [FronteggAuthGuard] },
+  { path: 'oauth/callback', component: OauthCallbackComponent }, // 👈 Add this
   { path: '**', redirectTo: 'home' },
 ];
 
